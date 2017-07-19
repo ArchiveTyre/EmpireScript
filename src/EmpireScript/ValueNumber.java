@@ -41,7 +41,6 @@ public class ValueNumber implements ScriptValue {
             ValueNumber otherNumber = (ValueNumber) otherValue;
             return this.getValue() == otherNumber.getValue();
         }
-
         return false;
     }
 }

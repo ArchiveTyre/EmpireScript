@@ -48,6 +48,12 @@ public class Parser {
                 return new InstructionPush();
             case "STOP":
                 return new InstructionStop();
+            case "LOAD":
+                return new InstructionLoad();
+            case "ARRAY":
+                return new InstructionArray();
+            case "STORE":
+                return new InstructionStore();
             case "PRINT":
                 return new InstructionPrint();
             case "CLONE":

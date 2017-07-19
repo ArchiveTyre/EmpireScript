@@ -1,32 +1,47 @@
 package EmpireScript;
 
-import java.util.Arrays;
-import java.util.StringTokenizer;
-
 /**
  * This class parses EmpireScript script source code into executable instructions.
  *
  * @author Tyrerexus
  * @date 7/18/17
  */
-public class Parser
-{
-    private String[] tokenized;
-    int lineNumber = 0;
+public class Parser {
 
-    Parser(String source)
-    {
+    /**
+     * An array of the source code split by newline.
+     */
+    private String[] tokenized;
+
+
+    /**
+     * The current line number being parsed.
+     * Starts from zero not one.
+     */
+    private int lineNumber = 0;
+
+    Parser(String source) {
         tokenized = source.split("\n");
     }
 
-    private InstructionBase instructionFactory(String name)
-    {
-        // Check if we have a name match. //
+    /**
+     * Creates an instruction by using it's name.
+     *
+     * @param name The name of the instruction being created.
+     * @return The instruction created. InstructionError will be returned on error.
+     */
+    private InstructionBase instructionFactory(String name) {
+        // Check if we have a name match.                         //
+        // If we match default, we'll return an InstructionError. //
         switch (name.toUpperCase()) {
             case "":
                 return new InstructionNoop();
             case "ADD":
                 return new InstructionAdd();
+            case "GET":
+                return new InstructionGet();
+            case "SET":
+                return new InstructionSet();
             case "JUMP":
                 return new InstructionJump();
             case "PUSH":
@@ -57,19 +72,25 @@ public class Parser
                 return new InstructionCondition();
             default:
                 return new InstructionError("Unknown instruction: " + name);
-
         }
     }
 
-    private InstructionBase parseInstruction(String token) {
+    /**
+     * Tokenizes the line given as argument into both instruction name and instruction arg.
+     * It then uses instructionFactory() to create the instruction instance and sets it's lineNumber and arg
+     * into the appropriate values.
+     *
+     * @param tokenLine The line to use for creation of an instruction.
+     * @return The instruction created.
+     */
+    private InstructionBase parseInstruction(String tokenLine) {
 
         // Parse the token into instruction name and args. //
-        //String[] parts = token.split(" ");
-        int delim = token.indexOf(' ');
-        if (delim < 0)
-            delim = token.length();
-        String instructionName = token.substring(0, delim);
-        String args = delim != 0 && delim != token.length() ? token.substring(delim + 1) : "";
+        int delimiter = tokenLine.indexOf(' ');
+        if (delimiter < 0)
+            delimiter = tokenLine.length();
+        String instructionName = tokenLine.substring(0, delimiter);
+        String args = delimiter != 0 && delimiter != tokenLine.length() ? tokenLine.substring(delimiter + 1) : "";
 
         // Create the instruction from it's name. //
         InstructionBase instructionBase = instructionFactory(instructionName);
@@ -80,7 +101,15 @@ public class Parser
         return instructionBase;
     }
 
+    /**
+     * Reads each line of the source code and converts it into a InstructionBase or any of its derivatives.
+     *
+     * @return A list of instructions that have been created from the source code.
+     */
     InstructionBase[] parse() {
+
+        // In case someone calls parse() two times. //
+        lineNumber = 0;
 
         // Allocate the instructions. //
         InstructionBase[] instructions = new InstructionBase[tokenized.length];

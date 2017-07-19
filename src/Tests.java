@@ -1,4 +1,5 @@
 import EmpireScript.ScriptRuntime;
+import EmpireScript.ScriptValue;
 import EmpireScript.WorldInterface;
 
 /**
@@ -7,8 +8,7 @@ import EmpireScript.WorldInterface;
  */
 public class Tests {
 
-    ScriptRuntime createScript(String source)
-    {
+    ScriptRuntime createScript(String source) {
         ScriptRuntime runtime = new ScriptRuntime(new WorldInterface() {
             @Override
             public void print(String message) {
@@ -21,21 +21,29 @@ public class Tests {
                 System.out.println(errorMessage);
                 System.out.flush();
             }
+
+            @Override
+            public ScriptValue getVariable(String variableName) {
+                return null;
+            }
+
+            @Override
+            public boolean setVariable(String variableName, ScriptValue value) {
+                return false;
+            }
         });
         runtime.loadScript(source);
         return runtime;
     }
 
-    void runScript(ScriptRuntime runtime)
-    {
+    void runScript(ScriptRuntime runtime) {
         System.out.println("\n=== BEGIN");
-        while(!runtime.stopped)
+        while (!runtime.stopped)
             runtime.step();
         System.out.println("=== END\n");
     }
 
-    void testAll()
-    {
+    void testAll() {
         createScript("").step();
 
 
@@ -72,8 +80,7 @@ public class Tests {
                 "ERROR Hello World\n" +
                 "JUMP LOOP\n" +
                 "STOP");
-        for (int i = 0; i < 2*10+1; i++)
-        {
+        for (int i = 0; i < 2 * 10 + 1; i++) {
             runtime.step();
         }
 
@@ -136,8 +143,7 @@ public class Tests {
                 "STOP"));
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         new Tests().testAll();
     }
 }

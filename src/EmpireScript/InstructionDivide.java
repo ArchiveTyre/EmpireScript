@@ -1,6 +1,8 @@
 package EmpireScript;
 
 /**
+ * Defines the divide instruction.
+ *
  * @author Tyrerexus
  * @date 7/18/17
  */
@@ -11,8 +13,7 @@ public class InstructionDivide extends InstructionBase {
         // Parse arguments from stack and validate their type. //
         ScriptValue valueA = runtime.stack.pop();
         ScriptValue valueB = runtime.stack.pop();
-        if (!(valueA instanceof ValueNumber) || !(valueB instanceof ValueNumber))
-        {
+        if (!(valueA instanceof ValueNumber) || !(valueB instanceof ValueNumber)) {
             runtime.worldInterface.error("Trying to divide NON-NUMBER in divide instruction!");
             return;
         }

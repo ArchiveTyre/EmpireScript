@@ -1,6 +1,8 @@
 package EmpireScript;
 
 /**
+ * Defines the stop instruction.
+ *
  * @author Tyrerexus
  * @date 7/18/17
  */

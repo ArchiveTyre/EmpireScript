@@ -1,6 +1,8 @@
 package EmpireScript;
 
 /**
+ * Defines the multiply instruction.
+ *
  * @author Tyrerexus
  * @date 7/18/17
  */
@@ -11,8 +13,7 @@ public class InstructionMultiply extends InstructionBase {
         // Parse arguments from stack and validate their type. //
         ScriptValue valueA = runtime.stack.pop();
         ScriptValue valueB = runtime.stack.pop();
-        if (!(valueA instanceof ValueNumber) || !(valueB instanceof ValueNumber))
-        {
+        if (!(valueA instanceof ValueNumber) || !(valueB instanceof ValueNumber)) {
             runtime.worldInterface.error("Trying to multiply NON-NUMBER in multiply instruction!");
             return;
         }

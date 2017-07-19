@@ -1,23 +1,31 @@
 package EmpireScript;
 
 /**
- *
+ * A ScriptValue that represents a number.
+ * Must be immutable!
  *
  * @author Tyrerexus
  * @date 7/18/17
  */
 public class ValueNumber implements ScriptValue {
+
+    /**
+     * Keep this immutable!
+     */
     private double value;
 
 
-    public double getValue()
-    {
+    /**
+     * Getter for value.
+     *
+     * @return The value that this instance represents.
+     */
+    public double getValue() {
         return value;
     }
 
 
-    public ValueNumber(double value)
-    {
+    public ValueNumber(double value) {
         this.value = value;
     }
 

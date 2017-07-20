@@ -1,6 +1,8 @@
 package EmpireScript;
 
 /**
+ * Defines the size instruction.
+ *
  * @author Tyrerexus
  * @date 7/20/17
  */

@@ -1,6 +1,8 @@
 package EmpireScript;
 
 /**
+ * The base class of all other instructions that can be executed by a runtime.
+ *
  * @author Tyrerexus
  * @date 7/18/17
  */

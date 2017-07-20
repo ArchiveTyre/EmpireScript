@@ -28,6 +28,12 @@ public class ScriptRuntime {
 
 
     /**
+     * The call stack of this runtime.
+     */
+    public Stack<Integer> callStack = new Stack<>();
+
+
+    /**
      * Which instruction is to be ran the next time step() is called.
      */
     int programCounter = 0;

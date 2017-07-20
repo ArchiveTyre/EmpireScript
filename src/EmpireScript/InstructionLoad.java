@@ -2,6 +2,7 @@ package EmpireScript;
 
 /**
  * Defines the load instruction.
+ *
  * @author Tyrerexus
  * @date 7/19/17
  */

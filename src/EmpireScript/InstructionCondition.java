@@ -2,7 +2,6 @@ package EmpireScript;
 
 /**
  * Defines the condition instruction.
- * <p>
  * This works just like InstructionJump except it only jump if it pops a value and it's value is 1.
  *
  * @author Tyrerexus

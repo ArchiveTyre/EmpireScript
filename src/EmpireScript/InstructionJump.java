@@ -2,7 +2,6 @@ package EmpireScript;
 
 /**
  * Defines the print instruction.
- * <p>
  * InstructionJumps attempts to change the program counter of the runtime executing it to that of the referred label.
  *
  * @author Tyrerexus
@@ -24,7 +23,7 @@ public class InstructionJump extends InstructionBase {
     /**
      * The position that the label is on.
      */
-    private int jumpTo = 0;
+    private int jumpDestination = 0;
 
 
     /**
@@ -64,13 +63,13 @@ public class InstructionJump extends InstructionBase {
 
             // Check that we actually found it. //
             if (label != null) {
-                jumpTo = label.lineNumber;
+                jumpDestination = label.lineNumber;
             } else {
                 reportError(runtime, "Couldn't find label: " + labelName);
             }
         }
 
         // Make the jump. //
-        runtime.programCounter = jumpTo;
+        runtime.programCounter = jumpDestination;
     }
 }

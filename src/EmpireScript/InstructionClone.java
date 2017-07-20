@@ -2,7 +2,6 @@ package EmpireScript;
 
 /**
  * Defines the clone instruction.
- * <p>
  * Creates another reference to the peek'd value of the runtime stack. Thus "cloning" the value.
  *
  * @author Tyrerexus

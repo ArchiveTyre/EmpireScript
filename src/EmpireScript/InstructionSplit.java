@@ -3,6 +3,8 @@ package EmpireScript;
 import java.util.Arrays;
 
 /**
+ * Defines the split instruction.
+ *
  * @author Tyrerexus
  * @date 7/20/17
  */

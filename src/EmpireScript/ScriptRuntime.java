@@ -90,6 +90,17 @@ public class ScriptRuntime {
      * @param value The value to push onto the stack.
      */
     public void push(String value) {
-        stack.add(new ValueString(value));
+        stack.add(new ValueArray(value));
+    }
+
+    /**
+     * A helper function for easily pushing a value onto the value stack.
+     *
+     * @param value The value to push onto the stack.
+     */
+    public void push(ScriptValue[] value) {
+        // TODO: Maybe this function can be confusing.
+        // TODO: For example. Is this, push multiple values at once, or push an array?
+        stack.add(new ValueArray(value));
     }
 }

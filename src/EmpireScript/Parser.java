@@ -46,6 +46,8 @@ public class Parser {
                 return new InstructionGet();
             case "SET":
                 return new InstructionSet();
+            case "SIZE":
+                return new InstructionSize();
             case "JUMP":
                 return new InstructionJump();
             case "PUSH":
@@ -56,6 +58,8 @@ public class Parser {
                 return new InstructionLoad();
             case "ARRAY":
                 return new InstructionArray();
+            case "SPLIT":
+                return new InstructionSplit();
             case "STORE":
                 return new InstructionStore();
             case "PRINT":

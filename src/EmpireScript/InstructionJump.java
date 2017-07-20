@@ -54,7 +54,7 @@ public class InstructionJump extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
 
         // If the label hasn't been found yet. //
         if (label == null) {

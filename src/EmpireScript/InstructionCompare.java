@@ -8,7 +8,7 @@ package EmpireScript;
  */
 public class InstructionCompare extends InstructionBase {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         ScriptValue valueA = runtime.stack.pop();
         ScriptValue valueB = runtime.stack.pop();
 

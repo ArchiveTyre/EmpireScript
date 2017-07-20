@@ -1,3 +1,4 @@
+import EmpireScript.InstructionBase;
 import EmpireScript.ScriptRuntime;
 import EmpireScript.ScriptValue;
 import EmpireScript.WorldInterface;
@@ -30,6 +31,11 @@ public class Tests {
             @Override
             public boolean setVariable(String variableName, ScriptValue value) {
                 return false;
+            }
+
+            @Override
+            public InstructionBase getCustomInstruction(String name) {
+                return null;
             }
         });
         runtime.loadScript(source);

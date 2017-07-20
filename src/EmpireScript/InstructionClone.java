@@ -10,7 +10,7 @@ package EmpireScript;
  */
 public class InstructionClone extends InstructionBase {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         runtime.stack.push(runtime.stack.peek());
     }
 }

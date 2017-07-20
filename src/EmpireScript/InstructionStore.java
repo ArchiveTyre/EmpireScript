@@ -8,7 +8,7 @@ package EmpireScript;
  */
 public class InstructionStore extends InstructionBase {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
 
         ScriptValue storeValue = runtime.stack.pop();
 

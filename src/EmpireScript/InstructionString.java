@@ -22,7 +22,7 @@ public class InstructionString extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         runtime.push(string);
     }
 }

@@ -69,7 +69,7 @@ public class ScriptRuntime {
      * @return False on failure.
      */
     public boolean loadScript(String script) {
-        instructions = new Parser(script).parse();
+        instructions = new Parser(worldInterface, script).parse();
         return instructions != null;
     }
 

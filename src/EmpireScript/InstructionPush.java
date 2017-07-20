@@ -56,7 +56,7 @@ public class InstructionPush extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         if (values != null) {
             for (double value : values) {
                 runtime.push(value);

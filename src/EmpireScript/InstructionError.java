@@ -22,7 +22,7 @@ public class InstructionError extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         reportError(runtime, errorMessage);
     }
 

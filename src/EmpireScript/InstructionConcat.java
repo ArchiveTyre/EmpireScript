@@ -20,7 +20,7 @@ public class InstructionConcat extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < amountToRead; i++) {
             if (runtime.stack.isEmpty()) {

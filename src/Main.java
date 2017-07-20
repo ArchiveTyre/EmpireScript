@@ -1,3 +1,4 @@
+import EmpireScript.InstructionBase;
 import EmpireScript.ScriptRuntime;
 import EmpireScript.ScriptValue;
 import EmpireScript.WorldInterface;
@@ -18,6 +19,8 @@ public class Main {
 
             // A hash map used to store variables. //
             HashMap<String, ScriptValue> worldVariables = new HashMap<>();
+
+            Scanner scanner = new Scanner(System.in);
 
             // Read the contents of the file as source code where arg is the file name. //
             FileInputStream stream = new FileInputStream(arg);
@@ -44,6 +47,18 @@ public class Main {
                 public boolean setVariable(String variableName, ScriptValue value) {
                     worldVariables.put(variableName, value);
                     return true;
+                }
+
+                @Override
+                public InstructionBase getCustomInstruction(String name) {
+                    if (name.equals("READ"))
+                        return new InstructionBase() {
+                            @Override
+                            public void execute(ScriptRuntime runtime) {
+                                runtime.push(scanner.nextLine());
+                            }
+                        };
+                    return null;
                 }
             });
 

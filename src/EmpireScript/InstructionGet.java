@@ -20,7 +20,7 @@ public class InstructionGet extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         runtime.stack.push(runtime.worldInterface.getVariable(variableName));
     }
 }

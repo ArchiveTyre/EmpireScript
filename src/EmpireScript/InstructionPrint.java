@@ -8,7 +8,7 @@ package EmpireScript;
  */
 public class InstructionPrint extends InstructionBase {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         runtime.worldInterface.print(runtime.stack.pop().toString());
     }
 }

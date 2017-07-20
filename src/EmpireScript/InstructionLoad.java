@@ -7,7 +7,7 @@ package EmpireScript;
  */
 public class InstructionLoad extends InstructionBase {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         ScriptValue indexValue = runtime.stack.pop();
 
         if (!(indexValue instanceof ValueNumber)) {

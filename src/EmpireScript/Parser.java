@@ -8,10 +8,11 @@ package EmpireScript;
  */
 public class Parser {
 
+    private final WorldInterface worldInterface;
     /**
      * An array of the source code split by newline.
      */
-    private String[] tokenized;
+    private final String[] tokenized;
 
 
     /**
@@ -20,8 +21,9 @@ public class Parser {
      */
     private int lineNumber = 0;
 
-    Parser(String source) {
+    Parser(WorldInterface worldInterface, String source) {
         tokenized = source.split("\n");
+        this.worldInterface = worldInterface;
     }
 
     /**
@@ -31,9 +33,11 @@ public class Parser {
      * @return The instruction created. InstructionError will be returned on error.
      */
     private InstructionBase instructionFactory(String name) {
+        name = name.toUpperCase();
+
         // Check if we have a name match.                         //
         // If we match default, we'll return an InstructionError. //
-        switch (name.toUpperCase()) {
+        switch (name) {
             case "":
                 return new InstructionNoop();
             case "ADD":
@@ -77,7 +81,13 @@ public class Parser {
             case "CONDITION":
                 return new InstructionCondition();
             default:
-                return new InstructionError("Unknown instruction: " + name);
+                InstructionBase instruction = worldInterface.getCustomInstruction(name);
+                if (instruction != null) {
+                    return instruction;
+                }
+                else {
+                    return new InstructionError("Unknown instruction: " + name);
+                }
         }
     }
 

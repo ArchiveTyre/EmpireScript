@@ -18,7 +18,7 @@ public class InstructionSet extends InstructionBase {
     }
 
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         ScriptValue value = runtime.stack.pop();
         if (!runtime.worldInterface.setVariable(variableName, value)) {
             // If .setVariable returns false, then we must report an error. //

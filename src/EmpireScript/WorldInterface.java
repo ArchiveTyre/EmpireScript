@@ -40,4 +40,13 @@ public interface WorldInterface {
      * @return True on success.
      */
     boolean setVariable(String variableName, ScriptValue value);
+
+
+    /**
+     * Ask the outer world for a custom instruction.
+     *
+     * @param name The name of the custom instructions.
+     * @return Null on non-existent.
+     */
+    InstructionBase getCustomInstruction(String name);
 }

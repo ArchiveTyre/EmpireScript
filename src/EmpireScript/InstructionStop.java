@@ -8,7 +8,7 @@ package EmpireScript;
  */
 public class InstructionStop extends InstructionBase {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         runtime.stopped = true;
     }
 }

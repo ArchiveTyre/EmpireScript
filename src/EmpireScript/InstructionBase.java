@@ -16,7 +16,7 @@ public abstract class InstructionBase {
      *
      * @param runtime The runtime that wished for the execution of this instruction.
      */
-    abstract void execute(ScriptRuntime runtime);
+    public abstract void execute(ScriptRuntime runtime);
 
 
     /**

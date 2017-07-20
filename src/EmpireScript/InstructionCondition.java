@@ -10,7 +10,7 @@ package EmpireScript;
  */
 public class InstructionCondition extends InstructionJump {
     @Override
-    void execute(ScriptRuntime runtime) {
+    public void execute(ScriptRuntime runtime) {
         ScriptValue uncheckedValue = runtime.stack.pop();
         if (uncheckedValue instanceof ValueNumber) {
             double value = ((ValueNumber) uncheckedValue).getValue();

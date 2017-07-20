@@ -22,5 +22,5 @@ public class InstructionLabel extends InstructionBase {
 
 
     @Override
-    void execute(ScriptRuntime runtime) {}
+    public void execute(ScriptRuntime runtime) {}
 }

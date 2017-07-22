@@ -1,12 +1,12 @@
 package EmpireScript;
 
 /**
- * Defines the push instruction.
+ * Defines the push number instruction.
  *
  * @author Tyrerexus
  * @date 7/18/17
  */
-public class InstructionPush extends InstructionBase {
+public class InstructionNumber extends InstructionBase {
     /**
      * The values to push when this instruction is executed.
      * Null if we fail to parse the arguments.

@@ -52,8 +52,6 @@ public class Parser {
                 return new InstructionSize();
             case "JUMP":
                 return new InstructionJump();
-            case "PUSH":
-                return new InstructionPush();
             case "STOP":
                 return new InstructionStop();
             case "LOAD":
@@ -72,6 +70,8 @@ public class Parser {
                 return new InstructionLabel();
             case "ERROR":
                 return new InstructionError();
+            case "NUMBER":
+                return new InstructionNumber();
             case "RETURN":
                 return new InstructionReturn();
             case "STRING":

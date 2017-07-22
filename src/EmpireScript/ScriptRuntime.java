@@ -36,7 +36,7 @@ public class ScriptRuntime {
     /**
      * Which instruction is to be ran the next time step() is called.
      */
-    int programCounter = 0;
+    public int programCounter = 0;
 
 
     /**

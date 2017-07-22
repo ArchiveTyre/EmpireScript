@@ -1,7 +1,5 @@
 package EmpireScript;
 
-import sun.awt.SunHints;
-
 /**
  * @author Tyrerexus
  * @date 7/19/17
